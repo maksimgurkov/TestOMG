@@ -8,18 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		767286212BA1A0DC00320619 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286202BA1A0DC00320619 /* AppDelegate.swift */; };
-		767286252BA1A0DC00320619 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286242BA1A0DC00320619 /* ViewController.swift */; };
 		7672862A2BA1A0DD00320619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 767286292BA1A0DD00320619 /* Assets.xcassets */; };
 		7672862D2BA1A0DD00320619 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7672862C2BA1A0DD00320619 /* Base */; };
+		7672863C2BA1A5F900320619 /* VerticalListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672863B2BA1A5F900320619 /* VerticalListPresenterProtocol.swift */; };
+		7672863E2BA1A60300320619 /* VerticalListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672863D2BA1A60300320619 /* VerticalListPresenter.swift */; };
+		767286402BA1A62000320619 /* VerticalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672863F2BA1A62000320619 /* VerticalListViewController.swift */; };
+		767286422BA1A62D00320619 /* VerticalListInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286412BA1A62D00320619 /* VerticalListInput.swift */; };
+		767286442BA1A7DC00320619 /* VerticalListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286432BA1A7DC00320619 /* VerticalListAssembly.swift */; };
+		767286462BA1A9A300320619 /* VerticalListTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286452BA1A9A300320619 /* VerticalListTableViewManager.swift */; };
+		767286482BA1A9C600320619 /* VerticalListTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286472BA1A9C600320619 /* VerticalListTableViewProtocol.swift */; };
+		7672864B2BA1AB5E00320619 /* VerticalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672864A2BA1AB5E00320619 /* VerticalTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7672861D2BA1A0DC00320619 /* TestOMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		767286202BA1A0DC00320619 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		767286242BA1A0DC00320619 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		767286292BA1A0DD00320619 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7672862C2BA1A0DD00320619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7672862E2BA1A0DD00320619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7672863B2BA1A5F900320619 /* VerticalListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListPresenterProtocol.swift; sourceTree = "<group>"; };
+		7672863D2BA1A60300320619 /* VerticalListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListPresenter.swift; sourceTree = "<group>"; };
+		7672863F2BA1A62000320619 /* VerticalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListViewController.swift; sourceTree = "<group>"; };
+		767286412BA1A62D00320619 /* VerticalListInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListInput.swift; sourceTree = "<group>"; };
+		767286432BA1A7DC00320619 /* VerticalListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListAssembly.swift; sourceTree = "<group>"; };
+		767286452BA1A9A300320619 /* VerticalListTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListTableViewManager.swift; sourceTree = "<group>"; };
+		767286472BA1A9C600320619 /* VerticalListTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListTableViewProtocol.swift; sourceTree = "<group>"; };
+		7672864A2BA1AB5E00320619 /* VerticalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +94,56 @@
 		767286362BA1A1F100320619 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				767286242BA1A0DC00320619 /* ViewController.swift */,
+				7672863A2BA1A57D00320619 /* Assembly */,
+				767286392BA1A56F00320619 /* Manager */,
+				767286382BA1A56400320619 /* View */,
+				767286372BA1A54C00320619 /* Presenter */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		767286372BA1A54C00320619 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7672863B2BA1A5F900320619 /* VerticalListPresenterProtocol.swift */,
+				7672863D2BA1A60300320619 /* VerticalListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		767286382BA1A56400320619 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				767286492BA1AB2D00320619 /* Cells */,
+				7672863F2BA1A62000320619 /* VerticalListViewController.swift */,
+				767286412BA1A62D00320619 /* VerticalListInput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		767286392BA1A56F00320619 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				767286452BA1A9A300320619 /* VerticalListTableViewManager.swift */,
+				767286472BA1A9C600320619 /* VerticalListTableViewProtocol.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7672863A2BA1A57D00320619 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				767286432BA1A7DC00320619 /* VerticalListAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		767286492BA1AB2D00320619 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7672864A2BA1AB5E00320619 /* VerticalTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +216,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				767286252BA1A0DC00320619 /* ViewController.swift in Sources */,
+				767286422BA1A62D00320619 /* VerticalListInput.swift in Sources */,
+				767286482BA1A9C600320619 /* VerticalListTableViewProtocol.swift in Sources */,
+				7672864B2BA1AB5E00320619 /* VerticalTableViewCell.swift in Sources */,
+				767286462BA1A9A300320619 /* VerticalListTableViewManager.swift in Sources */,
+				767286442BA1A7DC00320619 /* VerticalListAssembly.swift in Sources */,
+				767286402BA1A62000320619 /* VerticalListViewController.swift in Sources */,
+				7672863C2BA1A5F900320619 /* VerticalListPresenterProtocol.swift in Sources */,
 				767286212BA1A0DC00320619 /* AppDelegate.swift in Sources */,
+				7672863E2BA1A60300320619 /* VerticalListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
