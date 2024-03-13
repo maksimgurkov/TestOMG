@@ -4,7 +4,7 @@ import UIKit
 final class VerticalListTableViewManager: NSObject {
     weak var tableView: UITableView?
     
-    // MARK: - Private proprties
+    // MARK: - Private properties
     private var viewModel = [Int]()
 }
 
@@ -12,9 +12,18 @@ final class VerticalListTableViewManager: NSObject {
 extension VerticalListTableViewManager: VerticalListTableViewProtocol {
     func setup(tableView: UITableView) {
         self.tableView = tableView
-        self.tableView?.register(VerticalTableViewCell.self, forCellReuseIdentifier: VerticalTableViewCell.id)
+        self.tableView?.register(
+            VerticalTableViewCell.self,
+            forCellReuseIdentifier: VerticalTableViewCell.id
+        )
         self.tableView?.dataSource = self
         self.tableView?.delegate = self
+        self.tableView?.separatorInset = UIEdgeInsets(
+            top: 0,
+            left: 16,
+            bottom: 0,
+            right: 16
+        )
     }
     
     func update(viewModel: [Int]) {
@@ -34,12 +43,14 @@ extension VerticalListTableViewManager: UITableViewDataSource {
             withIdentifier: VerticalTableViewCell.id,
             for: indexPath
         ) as? VerticalTableViewCell else { return UITableViewCell() }
-        cell.fill(title: viewModel[indexPath.row])
+        cell.fill()
         return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 extension VerticalListTableViewManager: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        110
+    }
 }

@@ -23,7 +23,7 @@ extension VerticalListPresenter: VerticalListPresenterProtocol {
 // MARK: - Private extension
 private extension VerticalListPresenter {
     func createViewModel() {
-        var items = Array(1...150)
+        let items = Array(1...150)
         DispatchQueue.main.async {
             self.tableManager.update(viewModel: items)
         }

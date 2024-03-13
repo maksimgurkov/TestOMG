@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76329EDF2BA22A0800CBA2B9 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76329EDE2BA22A0800CBA2B9 /* ItemViewModel.swift */; };
 		767286212BA1A0DC00320619 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286202BA1A0DC00320619 /* AppDelegate.swift */; };
 		7672862A2BA1A0DD00320619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 767286292BA1A0DD00320619 /* Assets.xcassets */; };
 		7672862D2BA1A0DD00320619 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7672862C2BA1A0DD00320619 /* Base */; };
@@ -18,9 +19,11 @@
 		767286462BA1A9A300320619 /* VerticalListTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286452BA1A9A300320619 /* VerticalListTableViewManager.swift */; };
 		767286482BA1A9C600320619 /* VerticalListTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767286472BA1A9C600320619 /* VerticalListTableViewProtocol.swift */; };
 		7672864B2BA1AB5E00320619 /* VerticalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672864A2BA1AB5E00320619 /* VerticalTableViewCell.swift */; };
+		7672864D2BA1B9A700320619 /* HorizonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672864C2BA1B9A700320619 /* HorizonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76329EDE2BA22A0800CBA2B9 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		7672861D2BA1A0DC00320619 /* TestOMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		767286202BA1A0DC00320619 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		767286292BA1A0DD00320619 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		767286452BA1A9A300320619 /* VerticalListTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListTableViewManager.swift; sourceTree = "<group>"; };
 		767286472BA1A9C600320619 /* VerticalListTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListTableViewProtocol.swift; sourceTree = "<group>"; };
 		7672864A2BA1AB5E00320619 /* VerticalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTableViewCell.swift; sourceTree = "<group>"; };
+		7672864C2BA1B9A700320619 /* HorizonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76329EDD2BA229E400CBA2B9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76329EDE2BA22A0800CBA2B9 /* ItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		767286142BA1A0DC00320619 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +126,7 @@
 		767286382BA1A56400320619 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				76329EDD2BA229E400CBA2B9 /* ViewModel */,
 				767286492BA1AB2D00320619 /* Cells */,
 				7672863F2BA1A62000320619 /* VerticalListViewController.swift */,
 				767286412BA1A62D00320619 /* VerticalListInput.swift */,
@@ -142,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				7672864A2BA1AB5E00320619 /* VerticalTableViewCell.swift */,
+				7672864C2BA1B9A700320619 /* HorizonCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -218,6 +232,8 @@
 			files = (
 				767286422BA1A62D00320619 /* VerticalListInput.swift in Sources */,
 				767286482BA1A9C600320619 /* VerticalListTableViewProtocol.swift in Sources */,
+				7672864D2BA1B9A700320619 /* HorizonCollectionViewCell.swift in Sources */,
+				76329EDF2BA22A0800CBA2B9 /* ItemViewModel.swift in Sources */,
 				7672864B2BA1AB5E00320619 /* VerticalTableViewCell.swift in Sources */,
 				767286462BA1A9A300320619 /* VerticalListTableViewManager.swift in Sources */,
 				767286442BA1A7DC00320619 /* VerticalListAssembly.swift in Sources */,
