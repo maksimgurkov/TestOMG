@@ -1,14 +1,20 @@
 import UIKit
 
+fileprivate let spacing: CGFloat = 5
+fileprivate let verticalIndent: CGFloat = 5
+fileprivate let transformationSize: CGFloat = 0.8
+fileprivate let timeInterval: CGFloat = 1.0
+fileprivate let tolerance: CGFloat = 0.1
+
 // MARK: - VerticalTableViewCell
 final class VerticalTableViewCell: UITableViewCell {
     
+    // MARK: - Public Propertie
     static let id = "VerticalTableViewCell"
     var horizontalData: [Int] = []
     var timer: Timer?
     
     // MARK: - Private properties
-    private var items = [ItemCellType]()
     private let layout = UICollectionViewFlowLayout()
     
     private lazy var collectionView: UICollectionView = {
@@ -65,8 +71,13 @@ private extension VerticalTableViewCell {
     
     func settingLayout() {
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 5
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        layout.minimumLineSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(
+            top: 0,
+            left: spacing,
+            bottom: 0,
+            right: spacing
+        )
     }
     
     // Обновление одной случайной ячейки во всех горизонтальных списках
@@ -82,12 +93,20 @@ private extension VerticalTableViewCell {
 // MARK: - Layout
 private extension VerticalTableViewCell {
     func setConstraints() {
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            collectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-        ])
+        NSLayoutConstraint.activate(
+            [
+                collectionView.topAnchor.constraint(
+                    equalTo: contentView.topAnchor,
+                    constant: verticalIndent
+                ),
+                collectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+                collectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+                collectionView.bottomAnchor.constraint(
+                    equalTo: contentView.bottomAnchor,
+                    constant: -verticalIndent
+                ),
+            ]
+        )
     }
 }
 
@@ -114,7 +133,10 @@ extension VerticalTableViewCell: UICollectionViewDelegate {
         cancelTimer()
         UIView.animate(withDuration: 0.5) {
                 if let cell = collectionView.cellForItem(at: indexPath) as? HorizonCollectionViewCell {
-                    cell.transform = .init(scaleX: 0.8, y: 0.8)
+                    cell.transform = .init(
+                        scaleX: transformationSize,
+                        y: transformationSize
+                    )
                 }
             }
         }
@@ -148,13 +170,13 @@ extension VerticalTableViewCell: UICollectionViewDelegateFlowLayout {
 extension VerticalTableViewCell {
     func createTimer() {
         if timer == nil {
-            let timer = Timer(timeInterval: 1.0,
+            let timer = Timer(timeInterval: timeInterval,
                               target: self,
                               selector: #selector(updateTimer),
                               userInfo: nil,
                               repeats: true)
             RunLoop.current.add(timer, forMode: .common)
-            timer.tolerance = 0.1
+            timer.tolerance = tolerance
             
             self.timer = timer
         }

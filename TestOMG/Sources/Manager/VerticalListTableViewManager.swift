@@ -1,5 +1,8 @@
 import UIKit
 
+fileprivate let separatorIndent: CGFloat = 16
+fileprivate let heighCell: CGFloat = 110
+
 // MARK: - VerticalListTableViewManager
 final class VerticalListTableViewManager: NSObject {
     weak var tableView: UITableView?
@@ -20,9 +23,9 @@ extension VerticalListTableViewManager: VerticalListTableViewProtocol {
         self.tableView?.delegate = self
         self.tableView?.separatorInset = UIEdgeInsets(
             top: 0,
-            left: 16,
+            left: separatorIndent,
             bottom: 0,
-            right: 16
+            right: separatorIndent
         )
     }
     
@@ -51,7 +54,7 @@ extension VerticalListTableViewManager: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension VerticalListTableViewManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        110
+        heighCell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -60,5 +63,4 @@ extension VerticalListTableViewManager: UITableViewDelegate {
             tableView.reloadData()
         }
     }
-    
 }

@@ -3,8 +3,6 @@ import UIKit
 // MARK: - VerticalListViewController
 final class VerticalListViewController: UIViewController {
     
-    var timer = Timer()
-    
     // MARK: - Private properties
     private let presenter: VerticalListPresenterProtocol
     
@@ -62,19 +60,3 @@ private extension VerticalListViewController {
         ])
     }
 }
-
-//extension VerticalListViewController {
-//    func startTimer() {
-//        timer = Timer.scheduledTimer(
-//            timeInterval: 1,
-//            target: self,
-//            selector: #selector(updateTimer),
-//            userInfo: nil,
-//            repeats: true
-//        )
-//    }
-//    
-//    @objc func updateTimer() {
-//        print("1")
-//    }
-//}

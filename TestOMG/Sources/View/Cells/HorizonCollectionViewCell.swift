@@ -1,15 +1,17 @@
 import UIKit
 
+fileprivate let cornerRadius: CGFloat = 10
+fileprivate let borderWidth: CGFloat = 1
+
 // MARK: - HorizonCollectionViewCell
 final class HorizonCollectionViewCell: UICollectionViewCell {
     
     static let id = "HorizonCollectionViewCell"
     
-    private var itemLabel: UILabel = UILabel() {
-        didSet {
-            itemLabel.text = "100"
-        }
-    }
+    // MARK: - Private properties
+    private let itemLabel: UILabel = {
+        return UILabel()
+    }()
     
     // MARK: - Initialisers
     override init(frame: CGRect) {
@@ -30,9 +32,13 @@ final class HorizonCollectionViewCell: UICollectionViewCell {
 private extension HorizonCollectionViewCell {
     func setupView() {
         backgroundColor = .orange
-        layer.cornerRadius = 10
+        /*
+        Использовал cornerRadius по причине что Apple починили закадровый рендеринг
+        и он теперь работает верно. Да я знаю что можно сделать через bezierPath
+         */
+        layer.cornerRadius = cornerRadius
         layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        layer.borderWidth = 1
+        layer.borderWidth = borderWidth
         addSubView()
         setConstraints()
     }
