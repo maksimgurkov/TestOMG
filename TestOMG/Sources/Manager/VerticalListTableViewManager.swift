@@ -8,7 +8,7 @@ final class VerticalListTableViewManager: NSObject {
     weak var tableView: UITableView?
     
     // MARK: - Private properties
-    private var viewModel = [Int]()
+    private(set) var viewModel = [Int]()
 }
 
 // MARK: - VerticalListTableViewManager
@@ -58,9 +58,16 @@ extension VerticalListTableViewManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.count - 1 {
+        updateData(indexPath: indexPath.row + 1)
+    }
+}
+
+// MARK: - VerticalListTableViewManager
+extension VerticalListTableViewManager {
+    func updateData(indexPath: Int) {
+        if indexPath == viewModel.count {
             viewModel += Array(1...100)
-            tableView.reloadData()
+            tableView?.reloadData()
         }
     }
 }

@@ -7,16 +7,15 @@ fileprivate let timeInterval: CGFloat = 1.0
 fileprivate let tolerance: CGFloat = 0.1
 
 // MARK: - VerticalTableViewCell
-final class VerticalTableViewCell: UITableViewCell {
+class VerticalTableViewCell: UITableViewCell {
     
     // MARK: - Public Propertie
     static let id = "VerticalTableViewCell"
-    var horizontalData: [Int] = []
-    var timer: Timer?
     
     // MARK: - Private properties
+    private(set) var timer: Timer?
     private let layout = UICollectionViewFlowLayout()
-    
+    private(set) var horizontalData: [Int] = []
     private lazy var collectionView: UICollectionView = {
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
@@ -28,6 +27,7 @@ final class VerticalTableViewCell: UITableViewCell {
         createTimer()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -79,15 +79,6 @@ private extension VerticalTableViewCell {
             right: spacing
         )
     }
-    
-    // Обновление одной случайной ячейки во всех горизонтальных списках
-    func updateRandomNumbers() {
-        guard let cell = collectionView.visibleCells.randomElement() else { return }
-        guard let index = collectionView.indexPath(for: cell) else { return }
-        let randomItem = Int.random(in: 1...100)
-        horizontalData[index.item] = randomItem
-        collectionView.reloadData()
-        }
 }
 
 // MARK: - Layout
@@ -181,6 +172,15 @@ extension VerticalTableViewCell {
             self.timer = timer
         }
     }
+    
+    // Обновление одной случайной ячейки во всех горизонтальных списках
+    func updateRandomNumbers() {
+        guard let cell = collectionView.visibleCells.randomElement() else { return }
+        guard let index = collectionView.indexPath(for: cell) else { return }
+        let randomItem = Int.random(in: 1...100)
+        horizontalData[index.item] = randomItem
+        collectionView.reloadData()
+        }
     
     func cancelTimer() {
       timer?.invalidate()
