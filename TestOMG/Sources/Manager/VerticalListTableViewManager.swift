@@ -53,4 +53,12 @@ extension VerticalListTableViewManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         110
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.count - 1 {
+            viewModel += Array(1...100)
+            tableView.reloadData()
+        }
+    }
+    
 }

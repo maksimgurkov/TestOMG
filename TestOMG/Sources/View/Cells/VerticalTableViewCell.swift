@@ -111,6 +111,7 @@ extension VerticalTableViewCell: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension VerticalTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        cancelTimer()
         UIView.animate(withDuration: 0.5) {
                 if let cell = collectionView.cellForItem(at: indexPath) as? HorizonCollectionViewCell {
                     cell.transform = .init(scaleX: 0.8, y: 0.8)
@@ -124,6 +125,7 @@ extension VerticalTableViewCell: UICollectionViewDelegate {
                     cell.transform = .identity
                 }
             }
+            createTimer()
         }
     
 }
@@ -158,7 +160,13 @@ extension VerticalTableViewCell {
         }
     }
     
-    @objc func updateTimer() {
+    func cancelTimer() {
+      timer?.invalidate()
+      timer = nil
+    }
+    
+    @objc
+    func updateTimer() {
         updateRandomNumbers()
     }
 }
