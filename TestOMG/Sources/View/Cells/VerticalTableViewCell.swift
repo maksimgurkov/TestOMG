@@ -16,7 +16,7 @@ class VerticalTableViewCell: UITableViewCell {
     private(set) var timer: Timer?
     private let layout = UICollectionViewFlowLayout()
     private(set) var horizontalData: [Int] = []
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
@@ -123,23 +123,23 @@ extension VerticalTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         cancelTimer()
         UIView.animate(withDuration: 0.5) {
-                if let cell = collectionView.cellForItem(at: indexPath) as? HorizonCollectionViewCell {
-                    cell.transform = .init(
-                        scaleX: transformationSize,
-                        y: transformationSize
-                    )
-                }
+            if let cell = collectionView.cellForItem(at: indexPath) as? HorizonCollectionViewCell {
+                cell.transform = .init(
+                    scaleX: transformationSize,
+                    y: transformationSize
+                )
             }
         }
+    }
     
-        func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-            UIView.animate(withDuration: 0.5) {
-                if let cell = collectionView.cellForItem(at: indexPath) as? HorizonCollectionViewCell {
-                    cell.transform = .identity
-                }
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? HorizonCollectionViewCell {
+                cell.transform = .identity
             }
-            createTimer()
         }
+        createTimer()
+    }
     
 }
 
@@ -180,7 +180,7 @@ extension VerticalTableViewCell {
         let randomItem = Int.random(in: 1...100)
         horizontalData[index.item] = randomItem
         collectionView.reloadData()
-        }
+    }
     
     func cancelTimer() {
       timer?.invalidate()
